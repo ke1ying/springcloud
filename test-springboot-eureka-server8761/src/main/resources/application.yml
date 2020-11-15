@@ -1,0 +1,31 @@
+# 端口
+server:
+  port: 8761
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  application:
+    name: cloud-eureka-server
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      url: jdbc:mysql://localhost:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: root
+      password: ROOT
+
+# Eureka配置
+eureka:
+  instance:
+    # eureka服务端的实例名称
+    hostname: localhost
+  client:
+    # 是否将自己注册到Eureka服务中,因为该应用本身就是注册中心，不需要再注册自己（集群的时候为true）
+    register-with-eureka: false
+    # false表示自己端就是注册中心，职责就是维护服务实例，并不需要去检查服务
+    fetch-registry: true
+    # 设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  server:
+    enable-self-preservation: false
