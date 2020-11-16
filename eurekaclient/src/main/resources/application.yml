@@ -6,7 +6,7 @@ server:
 
 spring:
   application:
-    name: cloud-eureka-client
+    name: eureka-client
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
@@ -22,4 +22,5 @@ eureka:
   client:
     # 设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8081/eureka/
+
